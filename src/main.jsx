@@ -1,14 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import Siswa from './Siswa.jsx'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import './styles/index.css'
+import { RouterProvider } from 'react-router-dom'
+import router from './routes/router.jsx'
 
-const router = createBrowserRouter([
-  { path: "/", element: <App/>},
-  { path: "/siswa", element: <Siswa/> }
-])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
