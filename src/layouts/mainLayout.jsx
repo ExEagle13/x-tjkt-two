@@ -1,16 +1,20 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation, useMatch } from 'react-router-dom'
+import { Navbar, Footer } from '../components/layout/index.js'
 
 const mainLayout = () => {
-  return (
+    const { pathname } = useLocation();
+    const hideLayout = pathname === '/404';
+
+    return (
     <>
-        <nav className='p-4 bg-gray-600 text-white'></nav>
+        <nav>{!hideLayout && <Navbar/>}</nav>
 
         <main className='p-6'>
             <Outlet/>
         </main>
 
-        <footer className='p-4 bg-gray-200'>Footer</footer>
+        {!hideLayout && <Footer/>}
     </>
   )
 }
